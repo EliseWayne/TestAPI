@@ -2,6 +2,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.util.Hashtable;
+import com.sun.jndi.fscontext.RefFSContextFactory;
 
 
 public class TestAPI {
@@ -9,8 +10,8 @@ public class TestAPI {
 	public static void main(String[] args) throws NamingException {
 		// TODO Auto-generated method stub
 		Hashtable<String, String> environment = new Hashtable<String, String>();
-		environment.put(Context.INITIAL_CONTEXT_FACTORY, "com.sun.jndi.fscontext.RefFSContextFactory");
-		environment.put(Context.PROVIDER_URL, "D:/");
+		environment.put(Context.INITIAL_CONTEXT_FACTORY, RefFSContextFactory.class.getName() );
+		environment.put(Context.PROVIDER_URL, "file://C:/Users/Elisabeth/");
 		
 		
 		Context context = new InitialContext (environment);
